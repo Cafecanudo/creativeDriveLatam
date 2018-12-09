@@ -10,6 +10,7 @@
     <modules>
         <module>configuration-service</module>
         <module>discovery-service</module>
+        <module>user-service</module>
     </modules>
 
 </project>
