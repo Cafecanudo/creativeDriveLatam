@@ -1,13 +1,14 @@
 package com.creativedrive.cora.user.services;
 
-import com.creativedrive.cora.user.beans.UserBean;
+import com.creativedrive.cora.core.beans.UserBean;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
-    List<UserBean> listUsers();
+    Optional<List<UserBean>> listUsers();
 
-    UserBean save(UserBean userBean);
+    Optional<UserBean> save(UserBean user);
 
 }

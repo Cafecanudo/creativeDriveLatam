@@ -8,9 +8,11 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>creativedrive-core</module>
         <module>configuration-service</module>
         <module>discovery-service</module>
         <module>user-service</module>
+        <module>message-service</module>
     </modules>
 
 </project>

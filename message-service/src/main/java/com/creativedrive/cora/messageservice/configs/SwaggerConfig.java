@@ -1,4 +1,4 @@
-package com.creativedrive.cora.user.configs;
+package com.creativedrive.cora.messageservice.configs;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
@@ -28,12 +28,12 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("User API")
-                .description("CreativeDrive User API")
+                .title("API Message")
+                .description("CreativeDrive Message API")
                 .termsOfServiceUrl("https://cora.creativedrive.com")
                 .contact(createContact())
                 .license("Apache License Version 2.0")
-                .licenseUrl("https://github.com/Cafecanudo/creativeDriveLatam/tree/master/user-service")
+                .licenseUrl("https://github.com/Cafecanudo/creativeDriveLatam/tree/master/message-service")
                 .version("0.0.1-SNAPSHOT")
                 .build();
     }

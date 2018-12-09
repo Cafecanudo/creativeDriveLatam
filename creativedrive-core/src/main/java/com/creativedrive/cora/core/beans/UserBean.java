@@ -1,14 +1,16 @@
-package com.creativedrive.cora.user.beans;
+package com.creativedrive.cora.core.beans;
 
-import com.creativedrive.cora.user.documents.enums.TipoPerfil;
+import com.creativedrive.cora.core.beans.converters.ProfileConverter;
+import com.creativedrive.cora.core.beans.enums.ProfileType;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Data
@@ -20,7 +22,7 @@ import javax.validation.constraints.Size;
 @ApiModel(value = "user")
 public class UserBean {
 
-    @ApiModelProperty(notes = "ID do usuario")
+    @ApiModelProperty(notes = "User ID")
     @Size(max = 60, message = "Max 60 characters")
     private String id;
 
@@ -41,14 +43,15 @@ public class UserBean {
     private String senha;
 
     @ApiModelProperty(notes = "Address of user")
-    @Max(value = 120, message = "Max 120 characters")
+    @Size(max = 120, message = "Max 120 characters")
     private String endereco;
 
     @ApiModelProperty(notes = "Phone number of user", required = true)
-    @Max(value = 20, message = "Max 20 characters")
+    @Size(max = 20, message = "Max 20 characters")
     private String telefone;
 
     @ApiModelProperty(notes = "Profile of user", required = true)
-    @NotBlank(message = "Can not be empty")
-    private TipoPerfil perfil;
+    @NotNull(message = "Can not be empty")
+    @JsonDeserialize(using = ProfileConverter.class)
+    private ProfileType perfil;
 }
