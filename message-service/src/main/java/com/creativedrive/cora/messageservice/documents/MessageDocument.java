@@ -19,4 +19,6 @@ public class MessageDocument {
 
     @DBRef(lazy = true)
     private UserBean user;
+
+    private String message;
 }

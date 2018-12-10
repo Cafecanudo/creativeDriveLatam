@@ -38,6 +38,7 @@ public class MessageServiceImpl implements MessageService {
         return MessageBean.builder()
                 .id(document.getId())
                 .user(document.getUser())
+                .message(document.getMessage())
                 .build();
     }
 
@@ -51,6 +52,7 @@ public class MessageServiceImpl implements MessageService {
         return MessageDocument.builder()
                 .id(message.getId())
                 .user(message.getUser())
+                .message(message.getMessage())
                 .build();
     }
 }

@@ -12,6 +12,8 @@ spring:
             host: localhost
             port: 27017
 
-#logging:
+logging:
+    level:
+        org.springframework.data.mongodb.core.MongoTemplate: DEBUG
 #    pattern:
 #        console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"

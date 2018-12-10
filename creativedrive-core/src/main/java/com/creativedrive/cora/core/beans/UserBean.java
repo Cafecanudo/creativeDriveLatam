@@ -12,6 +12,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @Builder
@@ -54,4 +55,6 @@ public class UserBean {
     @NotNull(message = "Can not be empty")
     @JsonDeserialize(using = ProfileConverter.class)
     private ProfileType perfil;
+
+    private List<MessageBean> message;
 }

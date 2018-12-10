@@ -14,7 +14,8 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Slf4j
-@RestController("message")
+@RestController
+@RequestMapping("message")
 public class MessageController {
 
     @Autowired
@@ -22,7 +23,7 @@ public class MessageController {
 
     @GetMapping("/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<MessageBean> listUsers(@NotNull(message = "Id required") @PathVariable @Size(max = 60, message = "Max 60 characters") String id) {
+    public List<MessageBean> listMessagesByUser(@NotNull(message = "Id required") @PathVariable @Size(max = 60, message = "Max 60 characters") String id) {
         log.info("Consulting list messages...");
         return messageService.listMessage(id).get();
     }
