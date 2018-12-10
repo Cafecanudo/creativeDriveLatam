@@ -2,7 +2,7 @@ package com.creativedrive.cora.user.controllers;
 
 import com.creativedrive.cora.core.beans.MessageBean;
 import com.creativedrive.cora.core.beans.UserBean;
-import com.creativedrive.cora.core.beans.clients.MessageClient;
+import com.creativedrive.cora.user.clients.MessageClient;
 import com.creativedrive.cora.user.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

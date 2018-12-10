@@ -1,4 +1,4 @@
-package com.creativedrive.cora.core.beans.clients;
+package com.creativedrive.cora.user.clients;
 
 import com.creativedrive.cora.core.beans.MessageBean;
 import org.springframework.cloud.openfeign.FeignClient;
