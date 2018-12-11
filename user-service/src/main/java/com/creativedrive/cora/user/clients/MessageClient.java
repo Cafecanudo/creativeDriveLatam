@@ -1,4 +1,4 @@
-package com.creativedrive.cora.core.beans.clients;
+package com.creativedrive.cora.user.clients;
 
 import com.creativedrive.cora.core.beans.MessageBean;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-@FeignClient(name = "message-service", path = "/api")
+@FeignClient(name = "gateway-service", path = "/api")
 public interface MessageClient {
 
     @GetMapping("/message/{userID}")

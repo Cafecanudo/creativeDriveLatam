@@ -1,15 +1,14 @@
-package com.creativedrive.cora.messageservice;
+package com.creativedrive.cora.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-//@EnableWebFlux
 @EnableDiscoveryClient
 @SpringBootApplication
-public class MessageServiceApplication {
+public class GatewayServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MessageServiceApplication.class, args);
+        SpringApplication.run(GatewayServiceApplication.class, args);
     }
 }
