@@ -1,6 +1,8 @@
 package com.creativedrive.cora.user.services.impl;
 
+import com.creativedrive.cora.core.beans.MessageBean;
 import com.creativedrive.cora.core.beans.UserBean;
+import com.creativedrive.cora.user.clients.MessageClient;
 import com.creativedrive.cora.user.documents.UserDocument;
 import com.creativedrive.cora.user.repositories.UserRepository;
 import com.creativedrive.cora.user.services.UserService;
@@ -17,8 +19,20 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private MessageClient messageClient;
+
     @Override
     public Optional<List<UserBean>> listUsers() {
+        Optional<List<UserBean>> list = Optional.ofNullable(userRepository.findAll().stream().map(this::toBean)
+                .collect(Collectors.toList()));
+        if (list.isPresent()) {
+            list.get().stream().forEach(user -> {
+                List<MessageBean> messages = messageClient.listMessagesByUser(user.getId());
+                messages.stream().forEach(messageBean -> messageBean.setUser(null));
+                user.setMessage(messages);
+            });
+        }
         return Optional.ofNullable(userRepository.findAll().stream().map(this::toBean).collect(Collectors.toList()));
     }
 

@@ -1,8 +1,6 @@
 package com.creativedrive.cora.user.controllers;
 
-import com.creativedrive.cora.core.beans.MessageBean;
 import com.creativedrive.cora.core.beans.UserBean;
-import com.creativedrive.cora.user.clients.MessageClient;
 import com.creativedrive.cora.user.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +19,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private MessageClient messageClient;
-
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public List<UserBean> listUsers() {
@@ -35,13 +30,7 @@ public class UserController {
     @ResponseStatus(value = HttpStatus.OK)
     public List<UserBean> listUsersWithMessages() {
         log.info("Consulting list user with messages...");
-        List<UserBean> users = userService.listUsers().get();
-        users.stream().forEach(user -> {
-            List<MessageBean> messages = messageClient.listMessagesByUser(user.getId());
-            messages.stream().forEach(messageBean -> messageBean.setUser(null));
-            user.setMessage(messages);
-        });
-        return users;
+        return userService.listUsers().get();
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
