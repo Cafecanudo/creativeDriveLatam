@@ -1,7 +1,7 @@
 server:
     port: 8090
-#    servlet:
-#        context-path: /api
+    servlet:
+        context-path: /api
 eureka:
     client:
         serviceUrl:
@@ -15,5 +15,5 @@ spring:
 logging:
     level:
         org.springframework.data.mongodb.core.MongoTemplate: DEBUG
-#    pattern:
-#        console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
