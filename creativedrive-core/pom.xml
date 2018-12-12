@@ -50,6 +50,12 @@
             <version>${swagger.version}</version>
             <optional>false</optional>
         </dependency>
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <scope>test</scope>
+            <optional>false</optional>
+        </dependency>
     </dependencies>
 
 </project>

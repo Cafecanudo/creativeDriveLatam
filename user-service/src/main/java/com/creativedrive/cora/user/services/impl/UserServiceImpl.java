@@ -8,12 +8,14 @@ import com.creativedrive.cora.user.repositories.UserRepository;
 import com.creativedrive.cora.user.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -24,8 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<List<UserBean>> listUsers() {
-        Optional<List<UserBean>> list = Optional.ofNullable(userRepository.findAll().stream().map(this::toBean)
-                .collect(Collectors.toList()));
+        Optional<List<UserBean>> list = Optional.ofNullable(userRepository.findAll().stream().map(this::toBean).collect(Collectors.toList()));
         if (list.isPresent()) {
             list.get().stream().forEach(user -> {
                 List<MessageBean> messages = messageClient.listMessagesByUser(user.getId());

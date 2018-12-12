@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = UserServiceApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = {UserServiceApplication.class})
 @AutoConfigureMockMvc
 public abstract class AbstractTest {
 
